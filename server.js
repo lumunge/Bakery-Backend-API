@@ -39,15 +39,6 @@ mongoose
 mongoose.set("useFindAndModify", false);
 // END DATABASE CONFIG
 
-// PRODUCTS API START
-// Remove Method
-// app.delete("/api/products/:id", async (req, res) => {
-// 	const deletedProduct = await Product.findByIdAndDelete(req.params.id);
-// 	res.send(deletedProduct);
-// });
-
-//   PRODUCTS API END
-
 // ORDER MODEL
 // const Order = mongoose.model(
 // 	"orders",
