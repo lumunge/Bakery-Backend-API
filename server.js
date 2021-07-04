@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import ProductRoutes from "./Routes/Product.js";
 import OrderRoutes from "./Routes/Order.js";
+import MailingRoute from "./Routes/Mailing.js";
 import cors from "cors";
 // import jwt from "jsonwebtoken";
 // import shortid from "shortid";
@@ -23,6 +24,7 @@ app.use(cors());
 // Routes
 app.use("/products", ProductRoutes);
 app.use("/orders", OrderRoutes);
+app.use("/emails", MailingRoute);
 
 // DATABASE CONFIG
 const CONN_URL = process.env.MONGO_URI;
@@ -40,67 +42,6 @@ mongoose
 
 mongoose.set("useFindAndModify", false);
 // END DATABASE CONFIG
-
-// ORDER MODEL
-// const Order = mongoose.model(
-// 	"orders",
-// 	new mongoose.Schema(
-// 		{
-// 			_id: {
-// 				type: String,
-// 				default: shortid.generate,
-// 			},
-// 			email: String,
-// 			name: String,
-// 			phone: Number,
-// 			address: String,
-// 			decoration: String,
-// 			total: Number,
-// 			cartItems: [
-// 				{
-// 					_id: String,
-// 					title: String,
-// 					price: Number,
-// 					count: Number,
-// 				},
-// 			],
-// 		},
-// 		{
-// 			timestamps: true,
-// 		}
-// 	)
-// );
-
-// ORDER CREATION API
-// app.post("/api/orders", async (req, res) => {
-// if(
-//     !req.body.name ||
-//     !req.body.email ||
-//     !req.body.phone ||
-//     !req.body.address ||
-//     !req.body.decoration ||
-//     !req.body.cartItems ||
-//     !req.body.total
-
-// ){
-//     return res.send({
-//         message: "Data is required before submission"
-//     });
-// }
-// 	const order = await Order(req.body).save();
-// 	res.send(order);
-// });
-
-// app.get("/api/orders", async (req, res) => {
-// 	const orders = await Order.find({});
-// 	res.send(orders);
-// });
-
-// app.delete("/api/orders/:id", async (req, res) => {
-// 	const order = await Order.findByIdAndDelete(req.params.id);
-// 	res.send(order);
-// });
-// END ORDER CREATION API
 
 // CLIENTS MODEL
 // const MailingList = mongoose.model(
