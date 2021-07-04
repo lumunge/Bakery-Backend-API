@@ -8,3 +8,14 @@ export const getProducts = async (req, res) => {
 		res.status(404).json({ message: error.message });
 	}
 };
+
+export const createProduct = async (req, res) => {
+	const product = req.body;
+	const NewProduct = new Product(product);
+	try {
+		const savedProduct = await NewProduct.save();
+		res.status(201).json(savedProduct);
+	} catch (error) {
+		res.status(409).json({ message: error.message });
+	}
+};
