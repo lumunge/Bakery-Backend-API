@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import ProductRoutes from "./Routes/Product.js";
 import OrderRoutes from "./Routes/Order.js";
 import MailingRoute from "./Routes/Mailing.js";
+import ContactRoute from "./Routes/Contact.js";
 import cors from "cors";
 // import jwt from "jsonwebtoken";
 // import shortid from "shortid";
@@ -25,6 +26,7 @@ app.use(cors());
 app.use("/products", ProductRoutes);
 app.use("/orders", OrderRoutes);
 app.use("/emails", MailingRoute);
+app.use("/contacts", ContactRoute);
 
 // DATABASE CONFIG
 const CONN_URL = process.env.MONGO_URI;
@@ -42,46 +44,6 @@ mongoose
 
 mongoose.set("useFindAndModify", false);
 // END DATABASE CONFIG
-
-// CLIENTS MODEL
-// const MailingList = mongoose.model(
-// 	"mailing-list",
-// 	new mongoose.Schema(
-// 		{
-// 			_id: {
-// 				type: String,
-// 				default: shortid.generate,
-// 			},
-// 			email: String,
-// 		},
-// 		{
-// 			timestamps: true,
-// 		}
-// 	)
-// );
-// CLIENTS API
-// app.post("/api/mailing-list", async (req, res) => {
-// 	if (!req.body.email) {
-// 		return res.send({
-// 			message: "Please Enter your Email Address",
-// 		});
-// 	}
-// 	const mail = await MailingList(req.body).save();
-// 	res.send(mail);
-// });
-
-// app.get("/api/mailing-list", async (req, res) => {
-// 	const mail = await MailingList.find({});
-// 	res.send(mail);
-// });
-
-// app.delete("/api/mailing-list/:id", async (req, res) => {
-// 	const mail = await MailingList.findByIdAndDelete(req.params.id);
-// 	res.send(mail);
-// });
-// END CLIENTS API
-
-// const port = process.env.PORT || 5000;
 
 // CONTACT US MODEL
 // const Contact = mongoose.model(
