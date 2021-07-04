@@ -7,7 +7,7 @@ import shortid from "shortid";
 import dotenv from "dotenv";
 import User from "./Models/User.js";
 import withAuth from "./middleware.js";
-import ProductRoutes from "./Routes/Product";
+import ProductRoutes from "./Routes/Product.js";
 
 // initialze app
 const app = express();
@@ -19,9 +19,12 @@ app.use(bodyParser.json());
 // Routes
 app.use("/products", ProductRoutes);
 
+// environment variables accessibility
+dotenv.config();
+
 // mongod database connection
 mongoose.connect(
-	"mongodb://localhost/caroCakesDb",
+	`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.qg2aa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
 	{ useNewUrlParser: true, useUnifiedTopology: true },
 	() => console.log("Database connected successfully")
 );
@@ -158,7 +161,7 @@ app.delete("/api/mailing-list/:id", async (req, res) => {
 // END CLIENTS API
 
 // const port = process.env.PORT || 5000;
-dotenv.config();
+
 app.listen(process.env.PORT, () =>
 	console.log(`Serving @ http://localhost:${process.env.PORT}`)
 );
