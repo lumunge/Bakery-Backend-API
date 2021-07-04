@@ -1,20 +1,25 @@
-//Importing external modules
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 import shortid from "shortid";
 import dotenv from "dotenv";
 import User from "./Models/User.js";
 import withAuth from "./middleware.js";
-
-// const User = require("./Models/User");
-// const withAuth = require("./middleware");
+import ProductRoutes from "./Routes/Product";
 
 // initialze app
 const app = express();
+
+// middlewares
+app.use(cors);
 app.use(bodyParser.json());
 
+// Routes
+app.use("/products", ProductRoutes);
+
+// mongod database connection
 mongoose.connect(
 	"mongodb://localhost/caroCakesDb",
 	{ useNewUrlParser: true, useUnifiedTopology: true },
@@ -22,17 +27,17 @@ mongoose.connect(
 );
 
 // PRODUCTS API START
-const Product = mongoose.model(
-	"products",
-	new mongoose.Schema({
-		_id: { type: String, default: shortid.generate },
-		title: String,
-		description: String,
-		image: String,
-		price: Number,
-		availableSizes: [String],
-	})
-);
+// const Product = mongoose.model(
+// 	"products",
+// 	new mongoose.Schema({
+// 		_id: { type: String, default: shortid.generate },
+// 		title: String,
+// 		description: String,
+// 		image: String,
+// 		price: Number,
+// 		availableSizes: [String],
+// 	})
+// );
 
 // Get method
 app.get("/api/products", async (req, res) => {
