@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import ProductRoutes from "./Routes/Product.js";
+import OrderRoutes from "./Routes/Order.js";
 import cors from "cors";
 // import jwt from "jsonwebtoken";
 // import shortid from "shortid";
@@ -21,6 +22,7 @@ app.use(cors());
 
 // Routes
 app.use("/products", ProductRoutes);
+app.use("/orders", OrderRoutes);
 
 // DATABASE CONFIG
 const CONN_URL = process.env.MONGO_URI;

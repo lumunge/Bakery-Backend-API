@@ -29,7 +29,10 @@ const OrderSchema = mongoose.Schema(
 		},
 		cartItems: [
 			{
-				_id: shortid.generate,
+				_id: {
+					type: String,
+					default: shortid.generate,
+				},
 				title: {
 					type: String,
 					required: true,
@@ -49,3 +52,5 @@ const OrderSchema = mongoose.Schema(
 		timestamps: true,
 	}
 );
+
+export default mongoose.model("Order", OrderSchema);
