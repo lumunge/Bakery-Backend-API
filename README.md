@@ -1,11 +1,11 @@
-### BAKERY SHOP API
+### BAKERY SHOP BBAKEND API
 
 ### ABOUT
 
 An api for a bakery frontend webapp that serves data and handles CRUD operations
 and user authentication
 
-### TOOLKIT:
+### TECHNOLOGIES:
 
     * cors
     * express
@@ -22,12 +22,14 @@ and user authentication
     * User Authentication
     * User authentication
 
-### CURL COMMANDS
+### END POINTS
 
--   `coming soon...`
+### HOSTED @
+
+[api_endpoint](https://obscure-crag-41018.herokuapp.com/products)
 
 ### SETUP
 
-    * git clone https://github.com/lumungep12/Bakery-Shop-Frontend.git
+    * git clone https://github.com/lumunge/Bakery-Backend-Api.git
     * npm i
     * npm start
