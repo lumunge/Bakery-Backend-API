@@ -39,6 +39,6 @@ export const deleteProduct = async (req, res) => {
 		const deletedProduct = await Product.remove({ _id: req.params.id });
 		res.json(deletedProduct);
 	} catch (error) {
-		res.json({ message: error });
+		res.json({ message: "An error occured" });
 	}
 };
