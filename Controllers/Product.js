@@ -37,6 +37,7 @@ export const updateProduct = async (req, res) => {
 				},
 			}
 		);
+		res.json(updatedProduct);
 	} catch (error) {
 		res.json({ message: error });
 	}
