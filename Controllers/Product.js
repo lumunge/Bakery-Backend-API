@@ -24,16 +24,14 @@ export const createProduct = async (req, res) => {
 export const updateProduct = async (req, res) => {
 	try {
 		const updatedProduct = await Product.findOneAndUpdate(
-			{
-				_id: req.params.id,
-			},
+			{ _id: req.params.id },
 			{
 				$set: {
 					title: req.body.title,
 					description: req.body.description,
 					image: req.body.image,
 					price: req.body.price,
-					availabeSizes: req.body.availabeSizes,
+					availableSizes: req.body.availableSizes,
 				},
 			}
 		);
