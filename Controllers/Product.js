@@ -27,11 +27,11 @@ export const updateProduct = async (req, res) => {
 			{ _id: req.params.id },
 			{
 				$set: {
-					title: req.body.title,
-					description: req.body.description,
-					image: req.body.image,
-					price: req.body.price,
-					availableSizes: req.body.availableSizes,
+					title: req.params.title,
+					description: req.params.description,
+					image: req.params.image,
+					price: req.params.price,
+					availableSizes: req.params.availableSizes,
 				},
 			}
 		);
