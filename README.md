@@ -20,7 +20,6 @@ and user authentication
     * Create New Products
     * Get Products
     * User Authentication
-    * User authentication
 
 ### END POINTS
 
@@ -48,7 +47,11 @@ and user authentication
 
     -   Request
 
+        `curl -X PUT -H "Content-Type: application/json" -d '{"title":"product_title", "description": "product_description", "image":"product_image", "price": 00, "availableSizes": ["size1", size2"]}' https://obscure-crag-41018.herokuapp.com/products/product_id`
+
     -   Response
+
+        `Responds with the resplace product item`
 
 -   DELETE PRODUCT
 
@@ -70,12 +73,6 @@ and user authentication
 
     `A list of all orders made in JSON format`
 
--   DELETE ORDER
-
-    -   Request
-
-    -   Response
-
 -   GET ALL CONTACT MESSAGES
 
     -   Request
@@ -85,6 +82,16 @@ and user authentication
     -   Response
 
     `A list of all contact messages and users in JSON format`
+
+-   GET ALL EMAILS
+
+    -   Request
+
+        `curl -v https://obscure-crag-41018.herokuapp.com/emails`
+
+    -   Response
+
+        `A list of all emails in JSON format`
 
 ### HOSTED @
 
