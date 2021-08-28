@@ -23,15 +23,15 @@ export const createProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
 	try {
-		const updatedProduct = await Product.findOneAndUpdate(
+		const updatedProduct = await Product.findByIdAndUpdate(
 			{ _id: req.params.id },
 			{
 				$set: {
-					title: req.params.title,
-					description: req.params.description,
-					image: req.params.image,
-					price: req.params.price,
-					availableSizes: req.params.availableSizes,
+					title: req.body.title,
+					description: req.body.description,
+					image: req.body.image,
+					price: req.body.price,
+					availableSizes: req.body.availableSizes,
 				},
 			}
 		);
