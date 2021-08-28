@@ -22,16 +22,24 @@ export const createProduct = async (req, res) => {
 };
 
 export const updateProduct = async (req, res) => {
-	const { id: id } = req.params;
-	const product = req.body;
-	if (!mongoose.Types.ObjectId.isValid(id))
-		return res.status(404).send("No product with that id");
-	const updatedProduct = await Product.findByIdAndUpdate(
-		id,
-		{ ...product, id },
-		{ new: true }
-	);
-	res.json(updatedProduct);
+	try {
+		const updatedProduct = await Product.findOneAndUpdate(
+			{
+				_id: req.params.id,
+			},
+			{
+				$set: {
+					title: req.body.title,
+					description: req.body.description,
+					image: req.body.image,
+					price: req.body.price,
+					availabeSizes: req.body.availabeSizes,
+				},
+			}
+		);
+	} catch (error) {
+		res.json({ message: error });
+	}
 };
 
 export const deleteProduct = async (req, res) => {

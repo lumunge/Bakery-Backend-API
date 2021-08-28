@@ -54,7 +54,11 @@ and user authentication
 
     -   Request
 
+    `curl -X DELETE https://obscure-crag-41018.herokuapp.com/products/612a5d336ba57c0016627277`
+
     -   Response
+
+    `JSON response deleted count = 1`
 
 -   GET ALL ORDERS
 
