@@ -2,7 +2,7 @@
 
 ### ABOUT
 
-An api for a bakery frontend webapp that serves data and handles CRUD operations
+An api for a bakery frontend webapp that serves data, handles CRUD operations
 and user authentication
 
 ### TECHNOLOGIES:
